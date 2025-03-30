@@ -4,7 +4,6 @@ const express = require("express");
 const serverless = require("serverless-http");
 const cors = require("cors");
 
-
 const app =  express();
 const path = require("path");
 const authRoute = require("./router/Auth/authRouter");
@@ -22,7 +21,7 @@ const BASE_URI = process.env.Base
 
 
 const corsOptions = {
-    origin: BASE_URI,
+    origin: BASE_URI || "*",
     methods: "GET, POST, PUT, DELETE, PATCH, HEAD",
     credentials : true
 }
