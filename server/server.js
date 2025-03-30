@@ -1,7 +1,10 @@
 const dotenv = require("dotenv");
 dotenv.config();
 const express = require("express");
+const serverless = require("serverless-http");
 const cors = require("cors");
+
+
 const app =  express();
 const path = require("path");
 const authRoute = require("./router/Auth/authRouter");
@@ -52,3 +55,4 @@ ConnectDb().then(() => {
 
 // Export for Vercel
 module.exports = app;
+module.exports.handler = serverless(app);
