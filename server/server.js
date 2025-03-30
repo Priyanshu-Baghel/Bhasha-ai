@@ -15,11 +15,11 @@ const AdminRoutes = require("./router/Admin/admin")
 const paymentRoutes = require("./router/payment/paymentRoutes")
 const subscriptionRoute = require("./router/Subscription/subscriptionRouter")
 
-// const BASE_URI = process.env.Base
+const BASE_URI = process.env.Base
 
 
 const corsOptions = {
-    origin: "http://localhost:5173",
+    origin: BASE_URI,
     methods: "GET, POST, PUT, DELETE, PATCH, HEAD",
     credentials : true
 }
@@ -49,3 +49,6 @@ ConnectDb().then(() => {
         console.log(`Server is running on port ${PORT}`);
     });
 });
+
+// Export for Vercel
+module.exports = app;
