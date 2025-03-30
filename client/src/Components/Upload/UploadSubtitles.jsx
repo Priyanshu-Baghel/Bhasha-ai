@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import {useNavigate, Link} from "react-router-dom"
@@ -9,15 +9,14 @@ const UploadSubtitles = () => {
 
   const {isLoggedIn} = useAuth();
     
-  useEffect(() => {
-    const showToast = () => {
-      toast('Please log in to access this feature.');
-    };
-
-    if(!isLoggedIn){
-        showToast();
-  }
-  }, [isLoggedIn]);
+   const toastShown = useRef(false);
+ 
+   useEffect(() => {
+     if (!isLoggedIn && !toastShown.current) {
+       toast("Please log in to access this feature.");
+       toastShown.current = true;
+     }
+   }, [isLoggedIn]);
 
   // Language data
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useRef } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import {useNavigate, Link} from "react-router-dom";
@@ -7,17 +7,14 @@ import SummaryApi from "../../Utils/Utils";
 
 const UploadVideo = () => {
 
-   const { isLoggedIn } = useAuth();
+  const { isLoggedIn } = useAuth();
+  const toastShown = useRef(false);
 
   useEffect(() => {
-
-    const showToast = () => {
-      toast('Please log in to access this feature.');
-    };
-
-    if(!isLoggedIn){
-        showToast();
-  }
+    if (!isLoggedIn && !toastShown.current) {
+      toast("Please log in to access this feature.");
+      toastShown.current = true;
+    }
   }, [isLoggedIn]);
 
     // Language data
