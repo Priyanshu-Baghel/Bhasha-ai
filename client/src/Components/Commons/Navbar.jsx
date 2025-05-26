@@ -141,15 +141,16 @@ const Navbar = () => {
                     <div className="mt-6">
                       <nav className="grid gap-y-4">
                         {menuItems.map((item) => (
-                          <a
-                            key={item.name}
-                            href={item.href}
-                            className="-m-3 flex items-center rounded-md p-3 text-sm font-semibold"
-                          >
-                            <span className="ml-3 text-base font-medium text-gray-900 hover:text-primary">
-                              {item.name}
-                            </span>
-                          </a>
+                          <ul key={item.name}>
+                            <NavLink
+                              to={item.href}
+                              className="-m-3 flex items-center rounded-md p-3 text-sm font-semibold"
+                            >
+                              <span className="ml-3 text-base font-medium text-gray-900 hover:text-primary">
+                                {item.name}
+                              </span>
+                            </NavLink>
+                          </ul>
                         ))}
                       </nav>
                     </div>
