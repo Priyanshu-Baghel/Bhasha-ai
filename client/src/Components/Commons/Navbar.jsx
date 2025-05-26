@@ -141,7 +141,7 @@ const Navbar = () => {
                     <div className="mt-6">
                       <nav className="grid gap-y-4">
                           {menuItems.map((item) => (
-                              <li key={item.name}>
+                              <ul key={item.name}>
                                 <NavLink
                                   to={item.href}
                                   className="-m-3 flex items-center rounded-md p-3 text-sm font-semibold"
@@ -150,7 +150,7 @@ const Navbar = () => {
                                     {item.name}
                                   </span>
                                 </NavLink>
-                              </li>
+                              </ul>
                             ))}
                       </nav>
                     </div>
