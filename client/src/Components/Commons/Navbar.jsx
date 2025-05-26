@@ -71,14 +71,16 @@ const Navbar = () => {
             <div className="hidden grow items-start lg:flex">
               <ul className="ml-12 inline-flex space-x-8">
                 {menuItems.map((item) => (
-                  <li key={item.name}>
-                    <NavLink
-                      to={item.href}
-                      className="text-sm font-semibold text-gray-700 hover:text-primary"
-                    >
-                      {item.name}
-                    </NavLink>
-                  </li>
+                  <ul key={item.name}>
+                      <NavLink
+                        to={item.href}
+                        className="-m-3 flex items-center rounded-md p-3 text-sm font-semibold"
+                      >
+                        <span className="ml-3 text-base font-medium text-gray-900 hover:text-primary">
+                          {item.name}
+                        </span>
+                      </NavLink>
+                    </ul>
                 ))}
               </ul>
             </div>
